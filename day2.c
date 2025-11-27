@@ -5,7 +5,7 @@ typedef struct
     Elemtype data[MaxSize];
     int length;
 }SqList;
-void InitSize(SqList &L)
+void InitList(SqList &L)
 {
     for(int i=1;i<=MaxSize;i++)
     {
