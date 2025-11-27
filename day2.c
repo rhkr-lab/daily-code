@@ -16,7 +16,7 @@ void InitList(SqList &L)
 int main()
 {
     SqList L;
-    InitSize(L);
+    InitList(L);
     return 0;
 }
 // 打印链表
