@@ -49,3 +49,36 @@ bool ListInsert(SqList &L,int i,ElemType e)
     return true;
 }
 //查找元素
+---
+//顺序表的动态实现，各种基本操作
+#include <stdio.h>
+#define InitSize 10
+typedef Struct
+{
+    Elemtype * data;
+    int length;
+}Seqlist;
+InitSize(Seqlist &L)
+{
+    L.data=(ElemType *)malloc(sizeof(ElemType)*InitSize);
+    L.length=0;
+    L.MaxSize=InitSize;
+}
+int main()
+{
+    Seqlist L;
+    InitSize(L,5);
+    //插入元素到顺序表中，此处代码省略
+    IncreaseSize(L);
+    ListInsert(L,i,e);
+    return 0;
+}
+IncreaseSize(SeqList &L,int len)
+{
+    ElemType* p=L.data;
+    L.data=(ElemType *)malloc(sizeof(ElemType)*(InitSize+len));
+    for(i=1;i<=L.length;i++)
+        L.data[i-1]=p[i-1];
+    L.MaxSize=L.MaxSize+len;
+    free(p);
+}
