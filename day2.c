@@ -1,3 +1,4 @@
+//顺序表的静态实现，各种基本操作
 #include <stdio.h>
 #define MaxSize 10
 typedef struct
