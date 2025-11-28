@@ -19,6 +19,7 @@ bool ListInsert(SqList &L,int i,int/ElemType e)
     L.length++;
     return true;
 }
+
 //删除第i个元素，并用e带出来该元素的值
 bool ListDelete(SqList &L,int i,int &e)
 {
@@ -30,6 +31,13 @@ bool ListDelete(SqList &L,int i,int &e)
     L.length--;
     return true;
 }
+
+//取出第i个位置的数据
+ElemType GetElem(SqList &L,int i)
+{
+    return L.data[i-1];
+}
+
 //这些基本操作的使用
 int main()
 {
