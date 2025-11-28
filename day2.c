@@ -48,7 +48,21 @@ bool ListInsert(SqList &L,int i,ElemType e)
     L.length++;
     return true;
 }
-//查找元素
+//查找第i个元素
+ElemType GetElem(SeqList &L,int i)
+{
+    return L.data[i-1];
+}
+//查找元素e在顺序表中的位置
+int LocateElem(SeqList &L,ElemType e)
+{
+    for(int i=0;i<L.length;i++)
+    {
+        if(L.data[i]==e)//C语言中，对比两个结构体元素不能直接用==；但是考研中手写代码的时候可以直接写==
+            return i+1;
+    }
+    return 0;
+}
 ---
 //顺序表的动态实现，各种基本操作
 #include <stdio.h>
