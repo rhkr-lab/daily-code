@@ -128,3 +128,16 @@ bool InsertPriorNode(LNode *p,ElemType e)
     p->data=e;
     return true;
 }
+
+bool InsertPriorNode(LNode *p,LNode *s)
+{
+    if(p==NULL||s==NULL)
+        return false;
+    s->next=p->next;
+    p->next=s;
+    ElemType temp;
+    temp=p->data;
+    p->data=s->data;
+    s->data=p;
+    return true;
+}
