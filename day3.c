@@ -27,6 +27,36 @@ bool Empty(LinkList L)
     return (L=NULL);
 }
 
+bool LinkInsert(LinkList & L,int i,ElemType e)    //在不带头结点的单链表中的第i个位置插入元素e
+{
+    if(i<1)
+        return false;
+    if(i==1)
+    {    
+        LNode*s=(LNode*)malloc(sizeof(LNode));
+        s->data=e;
+        s->next=L;
+        L=s;
+        return true;
+    }
+    LNode*p;
+    int j=1;
+    p=L;
+    while(p!=NULL&&<i-1)
+    {
+        p=p->next;
+        j++;
+    }
+    if(p==NULL)
+        return false;
+    LNode* s=(LNode*)malloc(sizeof(LNode));
+    s->data=e;
+    s->next=p->next;
+    p->next=s;
+    return true;
+}
+
+
 //**带头结点的单链表**
 typedef struct LNode
 {
