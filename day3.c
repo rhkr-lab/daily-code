@@ -27,7 +27,7 @@ bool Empty(LinkList L)
     return (L=NULL);
 }
 
-//带头结点的单链表
+//**带头结点的单链表**
 typedef struct LNode
 {
     ElemType data;
@@ -40,5 +40,33 @@ bool InitList(LinkList &L)
     if(L==NULL)
         return false;
     L->next=NULL;
+    return true;
+}
+
+bool Empty(LinkList & L)    //判空操作
+{
+    if(L->next==NULL)
+        return true;
+    else    
+        return false;
+}
+
+bool LinkInsert(LinkList &L,int i,ElemType e)    //在第i个位置插入元素e
+{
+    if(i<1)
+        return false;
+    LNode *p=L;
+    int j=0;
+    while(p!=NULL&&<i-1) //找到第i-1个结点
+    {
+        p=p->next;
+        j++;
+    }
+    if(p==NULL) //i的值给的太大，超过了链表长度
+        return false;
+    LNode *s=(LNode*)malloc(sizeof(LNode));
+    s->data=e;
+    s->next=p->next;
+    p->next=s;
     return true;
 }
