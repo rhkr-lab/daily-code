@@ -100,3 +100,31 @@ bool LinkInsert(LinkList &L,int i,ElemType e)    //在第i个位置插入元素e
     p->next=s;
     return true;
 }
+
+//后插操作，给定一个结点p，将元素e插入到结点p的后面（适用于有头结点与无头结点的单链表）
+bool InsertNextNode(LNode *P,ElemType e)
+{
+    if(p==NULL)
+        return false;
+    LNode *s=(LNode *)malloc(sizeof(LNode));
+    if(s==NULL)     //内存分配失败
+        return false;
+    s->data=e;
+    s->next=p->next;
+    return true;
+}
+
+//指定结点的前插操作==后插操作+前后互换数据（结点s与给定的p结点）
+bool InsertPriorNode(LNode *p,ElemType e)
+{
+    if(p==NULL)
+        return false;
+    LNode *s=(LNode *)malloc(sizeof(LNode));
+    if (s==NULL)
+        return false;
+    s->next=p->next;
+    p->next=s;
+    s->data=p->data;
+    p->data=e;
+    return true;
+}
