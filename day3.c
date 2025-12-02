@@ -101,6 +101,30 @@ bool LinkInsert(LinkList &L,int i,ElemType e)    //在第i个位置插入元素e
     return true;
 }
 
+bool ListDelete(LinkList &L,int i,ElemType &e)    //带头结点的单链表删除，按位序删除，用e带出删除元素
+{
+   if(i<1)
+      return false;
+   LNode *p;
+   int j=0;
+   p=L;
+   while (p!=NULL&&j<i-1)
+   {
+      p=p->next;
+      j++;
+   }
+   if(p==NULL)
+      return false;
+   if(p->next==NULL)
+      return false;
+   LNode *q=p->next;
+   p->next=q->next;
+   e=q->data;
+   q->next=NULL;  //可以不写
+   free(q);
+   return true;
+}
+
 //后插操作，给定一个结点p，将元素e插入到结点p的后面（适用于有头结点与无头结点的单链表）
 bool InsertNextNode(LNode *P,ElemType e)
 {
