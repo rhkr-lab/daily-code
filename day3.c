@@ -165,3 +165,15 @@ bool InsertPriorNode(LNode *p,LNode *s)
     s->data=p;
     return true;
 }
+
+//删除指定结点（适用于带头结点和不带头结点的单链表）
+bool DeleteNode(LNode *p)
+{
+   if(p==NULL)
+      return false;
+   LNode *q=p->next;
+   p->data=q->data;  //通过数据交换把应删除的结点转换为他的后继结点
+   p->next=q->next;
+   free(q);
+   return true;
+}
