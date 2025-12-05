@@ -142,6 +142,31 @@ LNode * GetElem(LinkList &L,int i)    //按位查找，返回第i个元素，带
     return p;
 }
 
+LNode * LocateElem(LinkList &L,ElemType e)    //按值查找
+{
+    LNode *p;
+    p=L->next;
+    int j=0;
+    while(p->data!=e && p!=NULL)
+    {
+        p=p->next;
+        j++;
+    }
+    return p;
+}
+
+int Length(LinkList &L)    //返回单链表的表长
+{
+    LNode *p=L;
+    int length=0;
+    while(p->next!=NULL)    //头结点不算进长度中
+    {
+        p=p->next;
+        length++;
+    }
+    return length;
+}
+
 //后插操作，给定一个结点p，将元素e插入到结点p的后面（适用于有头结点与无头结点的单链表）
 bool InsertNextNode(LNode *P,ElemType e)
 {
