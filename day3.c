@@ -125,6 +125,23 @@ bool ListDelete(LinkList &L,int i,ElemType &e)    //带头结点的单链表删�
    return true;
 }
 
+LNode * GetElem(LinkList &L,int i)    //按位查找，返回第i个元素，带头结点的情况
+{
+    if(i<0)
+        return NULL;
+    LNode *p;
+    p=L;
+    int j=0;
+    while(p!=NULL && j<i)
+    {
+        p=p->next;
+        j++;
+    }
+    if(p==NULL)
+        return NULL;    //返回NULL就代表操作失败
+    return p;
+}
+
 //后插操作，给定一个结点p，将元素e插入到结点p的后面（适用于有头结点与无头结点的单链表）
 bool InsertNextNode(LNode *P,ElemType e)
 {
